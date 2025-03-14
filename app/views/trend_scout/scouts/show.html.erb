@@ -1,0 +1,20 @@
+<%= line_chart @runs_chart_data %>
+
+<table class="table">
+  <thead>
+    <th><%= TrendScout::Run.human_attribute_name(:id) %></th>
+    <th><%= TrendScout::Run.human_attribute_name(:created_at) %></th>
+    <th><%= TrendScout::Run.human_attribute_name(:status) %></th>
+    <th><%= TrendScout::Run.human_attribute_name(:value) %></th>
+  </thead>
+  <tbody>
+    <% @runs.each do |run| %>
+      <tr>
+        <td><%= run.id %></td>
+        <td><%= run.created_at %></td>
+        <td><%= run.status %></td>
+        <td><%= run.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

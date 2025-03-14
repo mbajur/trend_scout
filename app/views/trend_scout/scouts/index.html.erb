@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <th><%= TrendScout::Scout.human_attribute_name(:name) %></th>
+    <th><%= TrendScout::Scout.human_attribute_name(:type) %></th>
+    <th><%= TrendScout::Scout.human_attribute_name(:last_run_at) %></th>
+    <th><%= TrendScout::Scout.human_attribute_name(:last_status) %></th>
+    <th><%= TrendScout::Scout.human_attribute_name(:last_value) %></th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <% @scouts.each do |scout| %>
+      <tr>
+        <td><%= link_to scout.name, scout_path(scout) %></td>
+        <td><%= scout.type %></td>
+        <td><%= scout.last_run_at %></td>
+        <td><%= scout.last_status %></td>
+        <td><%= scout.last_value %></td>
+        <td>
+          <%= link_to 'Edit', edit_scout_path(scout) %>
+          <%= link_to 'Destroy', scout_path(scout), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

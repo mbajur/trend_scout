@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  run: one
+  before_value: 9.99
+  after_value: 9.99
+  seen_at: 2025-03-14 16:39:40
+
+two:
+  run: two
+  before_value: 9.99
+  after_value: 9.99
+  seen_at: 2025-03-14 16:39:40

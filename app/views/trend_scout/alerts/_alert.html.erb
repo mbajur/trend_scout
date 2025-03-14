@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <div class="d-flex">
+    <div>Value of <%= link_to alert.scout.name, scout_path(alert.scout) %> changed from <code><%= alert.before_value %></code> to <code><%= alert.after_value %></code>.</div>
+    <div class="ms-auto text-secondary"><%= time_ago_in_words(alert.created_at) %> ago</div>
+</li>

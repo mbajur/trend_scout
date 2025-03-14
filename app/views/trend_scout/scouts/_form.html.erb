@@ -1,0 +1,22 @@
+<%= form_with model: @scout.becomes(TrendScout::Scout) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :type %>
+    <%= f.select :type, options_for_select(TrendScout::Scout::TYPES, @scout.type), include_blank: true %>
+  </div>
+
+  <% if f.object.persisted? %>
+    <% @scout.class.stored_attributes[:properties].each do |property| %>
+      <div>
+        <%= f.label property %>
+        <%= f.text_field property, value: @scout.public_send(property) %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
