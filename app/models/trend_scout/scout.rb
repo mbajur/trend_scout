@@ -20,7 +20,6 @@ module TrendScout
     private
 
     def create_alert_if_last_value_changed
-      pp saved_change_to_last_value?
       return unless saved_change_to_last_value?
 
       Alert.create(
