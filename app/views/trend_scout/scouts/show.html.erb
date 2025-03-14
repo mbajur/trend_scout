@@ -1,6 +1,8 @@
+<h1 class="mb-3"><%= @scout.name %></h1>
+
 <%= line_chart @runs_chart_data %>
 
-<table class="table">
+<table class="table mt-3">
   <thead>
     <th><%= TrendScout::Run.human_attribute_name(:id) %></th>
     <th><%= TrendScout::Run.human_attribute_name(:created_at) %></th>
@@ -13,7 +15,7 @@
         <td><%= run.id %></td>
         <td><%= run.created_at %></td>
         <td><%= run.status %></td>
-        <td><%= run.value %></td>
+        <td><code><%= run.value %></code></td>
       </tr>
     <% end %>
   </tbody>

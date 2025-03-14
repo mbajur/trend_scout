@@ -23,7 +23,7 @@ module TrendScout
       @scout = Scout.new(scout_params)
 
       if @scout.save
-        redirect_to scouts_path
+        redirect_to edit_scout_path(@scout)
       else
         render :new
       end

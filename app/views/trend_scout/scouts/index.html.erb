@@ -15,10 +15,9 @@
         <td><%= scout.type %></td>
         <td><%= scout.last_run_at %></td>
         <td><%= scout.last_status %></td>
-        <td><%= scout.last_value %></td>
+        <td><code><%= scout.last_value %></code></td>
         <td>
           <%= link_to 'Edit', edit_scout_path(scout) %>
-          <%= link_to 'Destroy', scout_path(scout), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
