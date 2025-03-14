@@ -2,6 +2,10 @@ module TrendScout
   class ScoutsController < ApplicationController
     def index
       @scouts = Scout.order(name: :asc)
+      @alerts_counts = Alert.where(scout_id: @scouts.map(&:id), seen_at: nil)
+                            .group(:scout_id)
+                            .select("scout_id, COUNT(*) as alert_count")
+                            .index_by(&:scout_id)
     end
 
     def show

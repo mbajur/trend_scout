@@ -12,10 +12,19 @@
     <% @scouts.each do |scout| %>
       <tr>
         <td><%= link_to scout.name, scout_path(scout) %></td>
-        <td><%= scout.type %></td>
-        <td><%= scout.last_run_at %></td>
-        <td><%= scout.last_status %></td>
-        <td><code><%= scout.last_value %></code></td>
+        <td class="text-secondary"><%= scout.type %></td>
+        <td class="text-secondary"><%= scout.last_run_at %></td>
+        <td class="text-secondary"><%= scout.last_status %></td>
+        <td>
+          <code class="text-secondary"><%= scout.last_value %></code>
+
+          <% alerts_count = @alerts_counts.dig(scout.id)&.alert_count %>
+          <% if alerts_count&.positive? %>
+            <span class="badge rounded-pill text-bg-danger ms-1">
+              <%= alerts_count %>
+            </span>
+          <% end %>
+        </td>
         <td>
           <%= link_to 'Edit', edit_scout_path(scout) %>
         </td>
